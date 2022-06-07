@@ -8,6 +8,25 @@
   padding: 0 20px;
 }
 
+.newUserWrapper {
+  display: flex;
+  align-items: center;
+}
+.addNewuser {
+  margin: 0 10px;
+}
+.fromWrraper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.userCard {
+  width: 30%;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin: 10px;
+  position: relative;
+}
 .newUserForm {
   display: flex;
   /* flex-wrap: wrap; */
@@ -15,15 +34,17 @@
 }
 
 .newUserItem {
-  width: 400px;
+  width: 85%;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
   margin-right: 20px;
 }
 
+
 .newUserItem > label {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 14px;
   font-weight: 600;
   color: rgb(151, 150, 150);
@@ -36,8 +57,15 @@
   border-radius: 5px;
 }
 
+.newUserItem > select {
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 40%;
+}
+
 .newUserGender > input {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .newUserGender>label{
@@ -50,8 +78,15 @@
     height: 40px;
     border-radius: 5px;
 }
+.deleteNewuser {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 
 .newUserButton{
+    display: block;
+    margin: 30px auto;
     width: 200px;
     border: none;
     background-color: darkblue;

@@ -98,7 +98,7 @@ export default function OrederList() {
             disableSelectionOnClick
             columns={columns}
             getRowId={(row)=>row._id}
-            pageSize={11}
+            pageSize={10}
             checkboxSelection
           />
         </div>

@@ -64,7 +64,7 @@ export default function User() {
               <div className="userShowTop">
                 <img
                   src={user.img || 
-                    "https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"}
+                    "https://i.ibb.co/GVWn5zF/OIP.webp"}
                   alt=""
                   className="userShowImg"
                 />

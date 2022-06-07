@@ -48,8 +48,7 @@ import {
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    const res = await publicRequest.post("/auth/login", user);
-    // console.log(res.data.accessToken)
+    const res = await userRequest.post("/auth/adlogin", user);
     const token = res.data.accessToken
     userRequest.interceptors.request.use(function (config) {
         config.headers.token = 'Bearer ' + token
@@ -90,11 +89,13 @@ export const deleteUsers = async (id, dispatch) => {
   }
 };
 
-export const addUsers = async (user, dispatch) => {
+export const addUsers = async (users, dispatch) => {
   dispatch(addUserStart());
   try {
-    const res = await userRequest.post(`/auth/register`, user);
-    dispatch(addUserSuccess(res.data));
+    for(let user of users){
+      const res = await userRequest.post(`/auth/register`, user);
+      dispatch(addUserSuccess(res.data));
+    }
   } catch (err) {
     dispatch(addUserFailure());
   }

@@ -42,7 +42,7 @@ export default function UserList() {
         return (
           <div className="userListUser">
             <img className="userListImg" src={params.row.img || 
-                "https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"} alt="" />
+                "https://i.ibb.co/GVWn5zF/OIP.webp"} alt="" />
             {params.row.username}
           </div>
         );
@@ -95,7 +95,7 @@ export default function UserList() {
             disableSelectionOnClick
             columns={columns}
             getRowId={(row)=>row._id}
-            pageSize={8}
+            pageSize={10}
             checkboxSelection
           />
         </div>

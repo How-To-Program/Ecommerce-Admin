@@ -8,50 +8,50 @@ import { publicRequest } from "../../requestMethods";
 import { updateOrders } from "../../redux/apiCalls";
 
 export default function Product() {
-    const location = useLocation()
-    const dispatch = useDispatch();
-    const orderId = location.pathname.split("/")[2];
-    // const [pStats, setPStats] = useState([])
-    const order = useSelector((state)=>
-        state.order.orders.find((order) => order._id === orderId))
-    const [inputs, setInputs] = useState({...order})
-    const [proinputs, setProinputs] = useState([...order.products])
-    const [proid,setProid] = useState(order.products[0].productId)
-    const [pro,setPro] = useState()
-    const [proinfo,setProinfo] = useState({})
+  const location = useLocation()
+  const dispatch = useDispatch();
+  const orderId = location.pathname.split("/")[2];
+  // const [pStats, setPStats] = useState([])
+  const order = useSelector((state)=>
+      state.order.orders.find((order) => order._id === orderId))
+  const [inputs, setInputs] = useState({...order})
+  const [proinputs, setProinputs] = useState([...order.products])
+  const [proid,setProid] = useState(order.products[0].productId)
+  const [pro,setPro] = useState()
+  const [proinfo,setProinfo] = useState({})
 
-    const handleChange = (e) => {
-      setInputs((prev) => {
-        return { ...prev, [e.target.name]: e.target.value };
-      });
-    };
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
 
-    const handleproductChange = (e) => {
-      setProinputs((prev) => {
-        prev[prev.findIndex(item => item.time === pro)] = 
-        {...prev[prev.findIndex(item => item.time === pro)], [e.target.name]: e.target.value }
-        return prev;
-      });
-    };
+  const handleproductChange = (e) => {
+    setProinputs((prev) => {
+      prev[prev.findIndex(item => item.time === pro)] = 
+      {...prev[prev.findIndex(item => item.time === pro)], [e.target.name]: e.target.value }
+      return prev;
+    });
+  };
 
-    useEffect(()=>{
-      const getProduct = async() =>{
-        try{
-            const res = await publicRequest.get("./products/find/"+proid)
-            setProinfo(res.data)
-        } catch{}
-      }
-      getProduct()
-    },[proid])
-    const handleUpdate = (e) => {
-      e.preventDefault()
-      const neworder = {...inputs, products: [...proinputs]};
-      updateOrders(order._id, neworder, dispatch)
+  useEffect(()=>{
+    const getProduct = async() =>{
+      try{
+          const res = await publicRequest.get("./products/find/"+proid)
+          setProinfo(res.data)
+      } catch{}
     }
+    getProduct()
+  },[proid])
+  const handleUpdate = (e) => {
+    e.preventDefault()
+    const neworder = {...inputs, products: [...proinputs]};
+    updateOrders(order._id, neworder, dispatch)
+  }
 
-    const Button = ({ type }) => {
-      return <button className={"widgetLgButton " + type}>{type}</button>;
-    };
+  const Button = ({ type }) => {
+    return <button className={"widgetLgButton " + type}>{type}</button>;
+  };
 
   return (
     <div className="body" >
